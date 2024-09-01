@@ -127,4 +127,16 @@ public class LibraryManagementTest
         // Check whether 2nd book has publication year 2020 according to created test case scenario
         Assertions.assertEquals(2020,library.getAvailableBooks().get(1).getPublicationYear());
     }
+
+    // This test ensures that if library is empty menas has no books then getAvailableBooks returns empty list
+    @Test
+    void testGetAvailableBooksWhenLibraryIaEmpty(){
+
+        // Get the available books when the library is empty
+        List<Book> availableBooks = library.getAvailableBooks();
+
+        // Assert that the list of available books is empty
+        Assertions.assertTrue(availableBooks.isEmpty());
+        System.out.println("Test case run successfully it returns empty list");
+    }
 }
