@@ -39,4 +39,12 @@ public Book borrowBook(String isbn){
     return null; // Book not found or not available
 }
 
+//    returnBook method : this method is for return book
+public void returnBook(Book book){
+    // checking that returned book belongs to our list of books and currently its availability status is false
+    if(books.contains(book) && !book.isAvailable()){
+        book.returnBook();
+    }
+}
+
 }
