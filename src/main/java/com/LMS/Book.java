@@ -38,4 +38,10 @@ public class Book {
     public void borrow(){
         isAvailable = false;
     }
+
+    //return book method : when book is returned by user, this method makes availability status as true
+
+    public void returnBook(){
+        isAvailable = true;
+    }
 }
