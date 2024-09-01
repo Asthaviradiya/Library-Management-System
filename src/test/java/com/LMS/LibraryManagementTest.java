@@ -74,4 +74,21 @@ public class LibraryManagementTest
         Assertions.assertNull(borrowedBook);
         System.out.println("Test Case run successfully");
     }
+
+    // This test ensures that borrowed book is returned successfully and its availability is changed to true
+    @Test
+    void testReturnBook(){
+        Book book = new Book("722077","PQRS","Author1",1999);
+        library.addBook(book);
+
+        // First borrow a that book so isAvailable set to false
+        library.borrowBook("722077");
+
+        // Return that book so isAvailable set to true
+        library.returnBook(book);
+
+        // Checking that isAvailable set to true or not with following assertion
+        Assertions.assertTrue(book.isAvailable());
+        System.out.println("Test case run successfully and book is returned successfully");
+    }
 }
