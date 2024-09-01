@@ -47,4 +47,17 @@ public void returnBook(Book book){
     }
 }
 
+//   getAvailableBook method : return list of available books
+public List<Book> getAvailableBooks(){
+    List<Book> availableBooks = new ArrayList<Book>();
+
+    // Checking for each book that if it is available then it is added to availableBooks arrayList and then this list of all available book is returned
+    for(Book book : books){
+        if(book.isAvailable()){
+            availableBooks.add(book);
+        }
+    }
+    return availableBooks;
+}
+
 }
