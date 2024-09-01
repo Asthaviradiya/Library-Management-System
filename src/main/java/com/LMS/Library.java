@@ -26,4 +26,17 @@ public boolean addBook(Book book){
     books.add(book);
     return true;
 }
+
+//   borrowBook method : this method is used to borrow book
+public Book borrowBook(String isbn){
+    // checking that required book is currently available or not from list of books
+    for(Book book : books){
+        if(book.getIsbn().equals(isbn) && book.isAvailable()){
+            book.borrow();
+            return book;
+        }
+    }
+    return null; // Book not found or not available
+}
+
 }
