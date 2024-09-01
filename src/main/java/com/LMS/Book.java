@@ -14,5 +14,21 @@ public class Book {
         this.publicationYear = publicationYear;
         this.isAvailable = true;
     }
+    //getter method for isbn, author, publicationyear, available status
+    public String getIsbn(){
+        return isbn;
+    }
+    public String getTitle(){
+        return title;
+    }
+    public String getAuthor(){
+        return author;
+    }
+    public int getPublicationYear(){
+        return publicationYear;
+    }
+    public boolean isAvailable(){
+        return isAvailable;
+    }
 
 }
