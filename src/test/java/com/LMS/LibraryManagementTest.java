@@ -91,4 +91,18 @@ public class LibraryManagementTest
         Assertions.assertTrue(book.isAvailable());
         System.out.println("Test case run successfully and book is returned successfully");
     }
+
+    //   This test ensures that the returnBook does not modify availability of a book that hasn't been borrowed
+    @Test
+    void testReturnBookWhenIsNotBorrowed(){
+        Book book = new Book("722077","PQRS","Author1",1999);
+        library.addBook(book);
+
+        // Attempt to return a book that has not been borrowed
+        library.returnBook(book);
+
+        // Assert that the book is still available
+        Assertions.assertTrue(library.getAvailableBooks().contains(book));
+        System.out.println("Test case runs successfully and isAvailable is not modified");
+    }
 }
