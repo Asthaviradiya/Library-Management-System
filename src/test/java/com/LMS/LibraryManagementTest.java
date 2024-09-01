@@ -57,4 +57,21 @@ public class LibraryManagementTest
 
         System.out.println("Both results are matched and test case run successfully");
     }
+
+    // This test ensures that already borrowed book can not be borrowed again.
+    @Test
+    void testBorrowBookWhenIsAlreadyBorrowed(){
+        Book book = new Book("12345678","YASH","Author1",2009);
+        library.addBook(book);
+
+        // Borrow the book once
+        library.borrowBook("12345678");
+
+        // Attempt to borrow the same book again
+        Book borrowedBook = library.borrowBook("12345678");
+
+        // Assert that the borrowed book is null, indicating that the book is not available
+        Assertions.assertNull(borrowedBook);
+        System.out.println("Test Case run successfully");
+    }
 }
