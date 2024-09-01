@@ -14,7 +14,9 @@ public class Book {
         this.publicationYear = publicationYear;
         this.isAvailable = true;
     }
+
     //getter method for isbn, author, publicationyear, available status
+
     public String getIsbn(){
         return isbn;
     }
@@ -31,4 +33,9 @@ public class Book {
         return isAvailable;
     }
 
+    // borrow method : if book borrowed by user this method makes availability status as false
+
+    public void borrow(){
+        isAvailable = false;
+    }
 }
