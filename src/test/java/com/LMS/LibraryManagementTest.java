@@ -105,4 +105,26 @@ public class LibraryManagementTest
         Assertions.assertTrue(library.getAvailableBooks().contains(book));
         System.out.println("Test case runs successfully and isAvailable is not modified");
     }
+
+    // This test ensures that available books are correctly shown in list
+    @Test
+    void testGetAvailableBooks(){
+        Book book1 = new Book("25052080","HLMN","Author10",2023);
+        Book book2 = new Book("25052050","HKYN","Author11",2024);
+        Book book3 = new Book("25052010","HLON","Author12",2020);
+
+        // Adding books
+        library.addBook(book1);
+        library.addBook(book2);
+        library.addBook(book3);
+
+        // Borrowing one book with ISBN="25052080"
+        library.borrowBook("25052080");
+
+        // Check that now books ArrayList size is 2 or not using getAvailableBooks function which return list of available books
+        Assertions.assertEquals(2,library.getAvailableBooks().size());
+
+        // Check whether 2nd book has publication year 2020 according to created test case scenario
+        Assertions.assertEquals(2020,library.getAvailableBooks().get(1).getPublicationYear());
+    }
 }
